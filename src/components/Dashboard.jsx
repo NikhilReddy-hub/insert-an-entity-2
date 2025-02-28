@@ -1,9 +1,10 @@
 // src/components/Dashboard.jsx
 
-import React, { useState } from 'react';
-import MovieCard from './MovieCard';
-import { useNavigate } from 'react-router-dom';
-import './Dashboard.css'; // Optional: Import CSS for styling
+import React, { useState } from "react";
+import MovieCard from "./MovieCard";
+import { useNavigate } from "react-router-dom";
+import "./Dashboard.css"; // Optional: Import CSS for styling
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -12,21 +13,25 @@ const Dashboard = () => {
   const [movies, setMovies] = useState([
     {
       id: 1,
-      title: 'Inception',
-      director: 'Christopher Nolan',
-      genre: 'Science Fiction',
+      title: "Inception",
+      director: "Christopher Nolan",
+      genre: "Science Fiction",
       releaseYear: 2010,
-      synopsis: 'A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.',
-      posterUrl: 'https://image.tmdb.org/t/p/original/xymM5aW6MDcH5AR9I3CamSegJd6.jpgg',
+      synopsis:
+        "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+      posterUrl:
+        "https://image.tmdb.org/t/p/original/xymM5aW6MDcH5AR9I3CamSegJd6.jpgg",
     },
     {
       id: 2,
-      title: 'The Matrix',
-      director: 'The Wachowskis',
-      genre: 'Action',
+      title: "The Matrix",
+      director: "The Wachowskis",
+      genre: "Action",
       releaseYear: 1999,
-      synopsis: 'A computer hacker learns about the true nature of his reality and his role in the war against its controllers.',
-      posterUrl: 'https://image.tmdb.org/t/p/original/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg',
+      synopsis:
+        "A computer hacker learns about the true nature of his reality and his role in the war against its controllers.",
+      posterUrl:
+        "https://image.tmdb.org/t/p/original/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
     },
     // Add more movie objects as needed
   ]);
@@ -36,6 +41,9 @@ const Dashboard = () => {
       <header className="dashboard-header">
         <h1>Movie Collection</h1>
       </header>
+      <Link to="/create" className="btn btn-success">
+        Add book
+      </Link>
       <div className="movie-list">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
